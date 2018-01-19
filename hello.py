@@ -25,7 +25,7 @@ class MyStreamListener(tweepy.StreamListener):
 		with open('fetched_tweets.txt','a') as tf:
 		    tf.write(status.text.encode('utf-8') + '\n\n')
 	
-		print(status.text)
+		print(status.text + '\n')
 
     def on_error(self, status):
 	print("Error Code : " + str(status))
@@ -45,5 +45,4 @@ myStream = tweepy.Stream(auth = api.auth, listener=myStreamListener , tweet_mode
 
  
 myStream.filter(track=['#bitcoin' , '#BTC' , '#Bitcoin'],async=True,languages=['en'])
-
 
