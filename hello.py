@@ -8,6 +8,7 @@ ACCESS_TOKEN_SECRET = 'xizYGYtT57LbgqqPxmRyy6o9VGwKdY0FckYBDm1LKNqCw'
 auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
 auth.set_access_token(ACCESS_TOKEN, ACCESS_TOKEN_SECRET)
 api = tweepy.API(auth)
+a = []
 
 def analyze_status(text):
 
@@ -20,8 +21,16 @@ class MyStreamListener(tweepy.StreamListener):
 
     def on_status(self, status):
 	
-	if not analyze_status(status.text) :
+	if not analyze_status(status.text) and len(status.text) <= 120:
+		
+		a.append(status.text)
+		
+		print len(a)
+		print len(status.text)
+		if len(a)==10:
+			exit()
 
+		
 		with open('fetched_tweets.txt','a') as tf:
 		    tf.write(status.text.encode('utf-8') + '\n\n')
 	
