@@ -1,17 +1,11 @@
 <!DOCTYPE HTML>
 <html>
 <title>BitCoin Sentiment Tracker</title>
-    <head>
-    <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-    <title>Emoyto</title>
-
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-    <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-    <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel="stylesheet" type="text/css">
-</head>
+    <meta charset="utf-8">
+	<meta name="viewport" content="width=320" />
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Merriweather" />
+	<meta name="apple-mobile-web-app-capable" content="yes" />
+	<script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
 	<style type="text/css">
 .navbar{
     border-radius: 0;
@@ -32,7 +26,6 @@ body {
     text-align:center;
     font-weight: bold;
     background-color: whitesmoke;
-    overflow-x: hidden; 
 }
 
 h1 {
@@ -117,6 +110,70 @@ p {
     <meta name="apple-mobile-web-app-capable" content="yes" />
     <script type="text/javascript" src="http://d3js.org/d3.v2.min.js"></script>
 
+
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid ">
+
+        <!-- Header -->
+
+        <div class="navbar-header" style="width: 31%">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar" >
+            </button>
+            <a class="navbar-brand" href="" style="font-size: 30px"> Emoyto </a>
+        </div>
+
+        <!-- Items -->
+        <div class="collapse navbar-collapse" id="topNavBar" >
+
+    
+            <ul class="nav navbar-nav" >
+                <li class="" >
+                    <a href="" >
+                        <span  aria-hidden="true" ></span>&nbsp;
+                        
+                    </a>
+
+                </li>
+
+             </ul>
+
+
+            <ul class="nav navbar-nav" >
+                <li class="" >
+                    <a href=""  style="text-align: center; ">
+                        <span  aria-hidden="true" ></span>&nbsp;
+                        Crypto Sentiment Tracker
+                    </a>
+
+                </li>
+
+             </ul>
+
+
+
+
+            <ul class="nav navbar-nav navbar-right">
+
+                <li class="dropdown">
+                    <a class="dropdown-toggle" name = "cur", id = "cur" value = 1 data-toggle="dropdown" href="#" style="font-size: 17px;width: 160px">Currency
+                        <span class="caret"  ></span></a>
+                            <ul class="dropdown-menu" style="" >
+
+                              <li ><a href="#" value = 1> Bitcoin</a></li>
+                              <li ><a href="#" value = 2>Ripple</a></li>
+                              <li ><a href="#" value = 3>Etherium</a></li>
+
+                            </ul>
+                </li>
+
+
+            </ul>
+
+        </div>
+
+    </div>
+
+</nav>
 <script>
     (function() {
         function e(e,t) {
@@ -390,69 +447,11 @@ var gauge = function(container, configuration) {
     }
 </script>
 
+<head>
+    <h1>BitCoin Sentiment Tracker </h1>
+</head>
+
 <body>
-<nav class="navbar navbar-inverse">
-    <div class="container-fluid ">
-
-        <!-- Header -->
-
-        <div class="navbar-header" style="width: 31%">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#topNavBar" >
-            </button>
-            <a class="navbar-brand" href="" style="font-size: 30px"> Emoyto </a>
-        </div>
-
-        <!-- Items -->
-        <div class="collapse navbar-collapse" id="topNavBar" >
-
-    
-            <ul class="nav navbar-nav" >
-                <li class="" >
-                    <a href="" >
-                        <span  aria-hidden="true" ></span>&nbsp;
-                        
-                    </a>
-
-                </li>
-
-             </ul>
-
-
-            <ul class="nav navbar-nav" >
-                <li class="" >
-                    <a href=""  style="text-align: center; ">
-                        <span  aria-hidden="true" ></span>&nbsp;
-                        Crypto Sentiment Tracker
-                    </a>
-
-                </li>
-
-             </ul>
-
-
-
-
-            <ul class="nav navbar-nav navbar-right">
-
-                <li class="dropdown">
-                    <a class="dropdown-toggle" name = "cur", id = "cur" value = 1 data-toggle="dropdown" href="#" style="font-size: 17px;width: 160px">Currency
-                        <span class="caret"  ></span></a>
-                            <ul class="dropdown-menu" style="" >
-
-                              <li ><a href="#" value = 1> Bitcoin</a></li>
-                              <li ><a href="#" value = 2>Ripple</a></li>
-                              <li ><a href="#" value = 3>Etherium</a></li>
-
-                            </ul>
-                </li>
-
-
-            </ul>
-
-        </div>
-
-    </div>
-    </nav>
 <form action="" method="POST">
 <input type="hidden" name="scname" id="scname">
 <input type="hidden" name="secret" id="secret" value="shhh">
@@ -461,11 +460,40 @@ var gauge = function(container, configuration) {
     setInterval(function() { loadXMLDoc() }, 5000);
 </script>
 <div id="subhead">
-    <h4>Currently analyzing 0 tweets over the last 120 minutes. The average sentiment score is 0.0000.</h4>
+    <h4>Currently analyzing 0 tweets over the last 5 minutes. The average sentiment score is 0.0000.</h4>
 </div>
+<div id="bar"></div>
 <div id="power-gauge"></div>
-<div style="margin-left:-8px;margin-right:-8px; margin-top: 15%"><hr style="color:Black;background-color:lightgrey;border:0;width:100%;height:1.25px;" /></div>
+<div style="margin-left:-8px;margin-right:-8px"><hr style="color:Black;background-color:lightgrey;border:0;width:100%;height:1.25px;" /></div>
+<div id="description">
+    <h2>About</h2>
+    <p> The BitCoin Sentiment Tracker uses <span style="color: #A80000">real-time</span> twitter data to determine the public's <span style="color: #A80000">current perception</span> of BitCoin.
+        The web application streams all tweets containing the word 'BitCoin' within the last five minutes of being launched. The tweets are then put through <span style="color: #A80000">sentiment analysis</span> in order to determine how postitive or negative they are.
+        Lastly, the sentiment scores are averaged and reported to you using the <span style="color: #A80000">visualization</span> seen above.
+        For best results, keep this tab open for a few minutes and then check it out.</p>
+    <br>
+    <p> My name is <span style="color: #A80000">Conor Dewey</span>. I am currently an undergraduate student at Virgina
+        Tech studying data science. I completed this project in order to further improve my development and design related
+        skill sets. If you're interested in the code itself, feel free to have a look at my <a href="https://github.com/conordewey3/BitCoinSentimentTracker"><span style="color: #A80000">Github</span></a>.
+        For more on me and my work, you can head over to my <a href="http://conordewey.com"><span style="color: #A80000">portfolio</span></a> or <a href="https://www.linkedin.com/in/conordewey3/"><span style="color:
+        #A80000">LinkedIn</span></a>. Lastly, if you're interested in data science, machine learning, or AI then go ahead and <a href="https://www.getrevue.co/profile/conordewey3"><span style="color: #A80000">subscrib
 
+    <br>
+</div>
+
+<div id="share-buttons">
+
+   <!-- Twitter -->
+    <a href="https://twitter.com/share?url=https://BitCoin-sentiment-tracker.herokuapp.com&amp;text=How%20is%20BitCoin%20doing%20right%20now?%20Find%20out%20with%20BitCoin%20Sentiment%20Tracker&amp;hashtags=BitCoin, DataScience" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/twitter.png" alt="Twitter" />
+    </a>
+
+    <!-- Facebook -->
+    <a href="http://www.facebook.com/sharer.php?u=https://BitCoin-sentiment-tracker.herokuapp.com" target="_blank">
+        <img src="https://simplesharebuttons.com/images/somacro/facebook.png" alt="Facebook" />
+    </a>
+
+</div>
 
 </body>
 </html>
