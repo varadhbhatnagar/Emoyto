@@ -1,9 +1,4 @@
-# Answer to a question on Flask mailing list
-# http://librelist.com/browser//flask/2012/6/30/using-ajax-with-flask/
-# NOTE: *REALLY* don't do the thing with putting the HTML in a global
-#       variable like I have, I just wanted to keep everything in one
-#       file for the sake of completeness of answer.
-#       It's generally a very bad way to do things :)
+
 #
 from flask import (Flask, jsonify, render_template)
 from flask import request
@@ -20,10 +15,6 @@ cmp = Market()
 app = Flask(__name__)
 
 #Twitter Credentials
-'''consumer_key = "YfsfRUtv0Jstlvm0TLg8DrZNA"
-consumer_secret = "Dx95SabGPVACrlQanwkajOnsfss0tWsyej8xO8rUKnf6N70Tyh"
-access_token = "704330902432669696-pmTtYoAM3ywia3zAY5sWAEVkzhWUwan"
-access_token_secret = "BSW1LmSmDZmNrDPL3KytWXgZeOTHo99Ee1vDu1FBc5EAJ"'''
 
 consumer_key = ["YfsfRUtv0Jstlvm0TLg8DrZNA","M7Gxr21fzCQPOeQ8Rcm48Hskv","dWdHXN0Ko3CdQogLJ4Iy24Vl5"]
 consumer_secret = ["Dx95SabGPVACrlQanwkajOnsfss0tWsyej8xO8rUKnf6N70Tyh","Q5U8VniK0p8nMHYjvxll6V1H6CvNc4XUKHxDdqM0JioGNkej3r","e9EPoegS4TuYYYIN5m2JM3rTv7FuhAL7mYkIRGJlZwS4sWm9G3"]
