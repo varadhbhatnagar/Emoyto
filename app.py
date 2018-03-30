@@ -81,6 +81,3 @@ if __name__ == "__main__":
     app.run(debug=True)
 
 
-# 1. Integrate Spinner with Sentiment Score
-# 2. Begin UI/UX Design
-
