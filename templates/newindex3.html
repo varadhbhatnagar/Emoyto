@@ -9,8 +9,8 @@
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
     <script src="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="https://netdna.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link href='https://fonts.googleapis.com/css?family=Satisfy' rel="stylesheet" type="text/css">
 </head>
 	<style type="text/css">
 .navbar{
@@ -27,7 +27,7 @@
 }
 
 body {
-    font-family:  Merriweather-900;
+    font-family: 'Source Sans Pro', sans-serif;
     font-size: 30px;
     text-align:center;
     font-weight: bold;
@@ -384,25 +384,25 @@ var gauge = function(container, configuration) {
                         document.getElementById('temp').innerHTML = "<span style='color: black ;'> The prospects are neutral.</span> ";
                     }
                     if(currSentiment > 0.1 && currSentiment <=0.2 && ans2<ans && coin=="bitcoin"){
-                        document.getElementById('temp').innerHTML = "<span style='color : blue;'> The prospects look good : You can look buy! </span> <br />"+"<span style='color : blue;'> last one hour price change is: </span>"+ans+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+ans2+"%";
+                        document.getElementById('temp').innerHTML = "<span style='color : blue;'> The prospects look good : You can look buy! </span> <br />"+"<span style='color : blue;'> Price change in last one hour: </span>"+ans+"% <br />"+ "<span style='color : blue;'> Price change in last 24 hours: </span>"+ans2+"%";
                         
                     }
 
                     else if(currSentiment > 0.2  && ans2<ans&& coin=="bitcoin"){
-                        document.getElementById('temp').innerHTML = "<span style ='color : green ;'> The sentiment is highly favourable : Best time to buy! </span><br />"+"<span style='color : blue;'> last one hour price change is: </span>"+ans+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+ans2+"%";
+                        document.getElementById('temp').innerHTML = "<span style ='color : green ;'> The sentiment is highly favourable : Best time to buy! </span><br />"+"<span style='color : blue;'> Price change in last one hour: </span>"+ans+"% <br />"+ "<span style='color : blue;'> Price change in last 24 hours: </span>"+ans2+"%";
                     }
 
                     else if(currSentiment< -0.1 && currSentiment >=-0.2&& coin=="bitcoin")
                     {
-                        document.getElementById('temp').innerHTML = " <span style = 'color : orange;'> The prospects look bad : Sell before its too late! </span><br />"+"<span style='color : blue;'> last one hour price change is: </span>"+ans+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+ans2+"%";
+                        document.getElementById('temp').innerHTML = " <span style = 'color : orange;'> The prospects look bad : Sell before its too late! </span><br />"+"<span style='color : blue;'> Price change in last one hour: </span>"+ans+"% <br />"+ "<span style='color : blue;'> Price change in last 24 hours: </span>"+ans2+"%";
                     }
                     else if(currSentiment < -0.2&& coin=="bitcoin"){
-                        document.getElementById('temp').innerHTML = " <span style = 'color : red ;'> The sentiment is highly unfavourable : Sell to minimize the losses! </span><br />"+"<span style='color : blue;'> last one hour price change is: </span>"+ans+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+ans2+"%";
+                        document.getElementById('temp').innerHTML = " <span style = 'color : red ;'> The sentiment is highly unfavourable : Sell to minimize the losses! </span><br />"+"<span style='color : blue;'> Price change in last one hour: </span>"+ans+"% <br />"+ "<span style='color : blue;'> Price change in last 24 hours: </span>"+ans2+"%";
                     }
 
                     else if(coin=="bitcoin")
                     {
-                        document.getElementById('temp').innerHTML = "<span style='color: red ;'> Wait man! wait. The situation is unstable, anything could happen</span> ";
+                        document.getElementById('temp').innerHTML = "<span style='color: black ;'> The situation is unstable, anything could happen.</span> ";
                     }
 
 
