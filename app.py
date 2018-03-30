@@ -1,22 +1,16 @@
-# Answer to a question on Flask mailing list
-# http://librelist.com/browser//flask/2012/6/30/using-ajax-with-flask/
-# NOTE: *REALLY* don't do the thing with putting the HTML in a global
-#       variable like I have, I just wanted to keep everything in one
-#       file for the sake of completeness of answer.
-#       It's generally a very bad way to do things :)
+
 #
-from flask import (Flask, jsonify, render_template)
+from flask import (Flask, jsonify, render_template, request)
 from twitter_streamer import StdOutListener
 from tweepy import Stream, OAuthHandler
+from coinmarketcap import Market
+cmp = Market()
+
+
+
 #from config import consumer_key, consumer_secret, access_token, access_token_secret
 
 app = Flask(__name__)
-
-#Twitter Credentials
-'''consumer_key = "YfsfRUtv0Jstlvm0TLg8DrZNA"
-consumer_secret = "Dx95SabGPVACrlQanwkajOnsfss0tWsyej8xO8rUKnf6N70Tyh"
-access_token = "704330902432669696-pmTtYoAM3ywia3zAY5sWAEVkzhWUwan"
-access_token_secret = "BSW1LmSmDZmNrDPL3KytWXgZeOTHo99Ee1vDu1FBc5EAJ"'''
 
 consumer_key = ["YfsfRUtv0Jstlvm0TLg8DrZNA","M7Gxr21fzCQPOeQ8Rcm48Hskv","dWdHXN0Ko3CdQogLJ4Iy24Vl5"]
 consumer_secret = ["Dx95SabGPVACrlQanwkajOnsfss0tWsyej8xO8rUKnf6N70Tyh","Q5U8VniK0p8nMHYjvxll6V1H6CvNc4XUKHxDdqM0JioGNkej3r","e9EPoegS4TuYYYIN5m2JM3rTv7FuhAL7mYkIRGJlZwS4sWm9G3"]
@@ -26,8 +20,8 @@ access_token_secret=["BSW1LmSmDZmNrDPL3KytWXgZeOTHo99Ee1vDu1FBc5EAJ","93DS5hJ1NQ
 
 # OAuth process
 
-auth = OAuthHandler(consumer_key[1], consumer_secret[1])
-auth.set_access_token(access_token[1], access_token_secret[1])
+auth = OAuthHandler(consumer_key[0], consumer_secret[0])
+auth.set_access_token(access_token[0], access_token_secret[0])
 
 l = StdOutListener()
 
@@ -37,14 +31,27 @@ def index():
 
 @app.route('/ajax', methods=['POST'])
 def ajax_request():
-    stream = Stream(auth, l)
-    stream.filter(track=['Bitcoin', 'BTC', 'bitcoins'], async=True)
-    score = round(l.df.Sentiment.mean(), 4)
-    numTweets = len(l.df)
-    return jsonify(score=score, numTweets = numTweets)
+	stream = Stream(auth, l)
+	stream.filter(track=['BTC', 'Bitcoin', 'bitcoin'], async=True)
+	score = round(l.df.Sentiment.mean(), 4)
+	numTweets = len(l.df)
+	lh=cmp.ticker("AUD",limit=1,convert='USD')
+	return jsonify(score=score, numTweets = numTweets)
+
+
+@app.route('/test', methods=['POST', 'GET'])
+def test():
+	if request.method == 'POST':
+		id = request.form['id']
+		print(id, type(id))
+		return "Your id is : " + str(id) + " and type of id is : " + type(id)
+	elif request.method == 'GET':
+		return "GET REQUEST"
 
 if __name__ == "__main__":
     app.run(debug=True)
+
+
 
 
 # 1. Integrate Spinner with Sentiment Score
