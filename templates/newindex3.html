@@ -148,8 +148,8 @@ var gauge = function(container, configuration) {
 		pointerTailLength			: 5,
 		pointerHeadLengthPercent	: 0.9,
 
-		minValue					: -1.0,
-		maxValue					: 1.0,
+		minValue					: -0.5,
+		maxValue					: 0.5,
 
 		minAngle					: -100,
 		maxAngle					: 100,
@@ -356,24 +356,33 @@ var gauge = function(container, configuration) {
                     var currSentiment = response.score;
                     var numTweets = response.numTweets;
                     setCurrSent(currSentiment);
-
-                    document.getElementById('subhead').innerHTML = '<h4>Currently analyzing ' + '<font color=\"#A80000\">'
+                    var str =  '<h4>Currently analyzing ' + '<font color=\"#A80000\">'
                         + numTweets + '</font>' + ' tweets over the last 2 hours. The current sentiment score is ' +
                         '<font color=\"#A80000\">' + currSentiment + '</font>' + '.</h4>';
 
-                    /*
-                    if (currSentiment > 0)
+                    document.getElementById('subhead').innerHTML =str;
+                    if(currSentiment >= -0.1 && currSentiment <= 0.1)
                     {
-                        document.getElementById('myDiv').innerHTML = '<font color=\"green\">' + currSentiment + '</font>'
+                    	document.getElementById('temp').innerHTML = "<span style='color: black ;'> The prospects are neutral.</span> ";
                     }
-                    else if (currSentiment == 0)
-                    {
-                        document.getElementById('myDiv').innerHTML = '<font color=\"black\">' + currSentiment + '</font>'
+                    if(currSentiment > 0.1 && currSentiment <=0.2){
+                    	document.getElementById('temp').innerHTML = "<span style='color : blue;'> The prospects look good : You can look buy! </span>";
                     }
-                    else
+
+                    else if(currSentiment > 0.2){
+                    	document.getElementById('temp').innerHTML = "<span style ='color : green ;'> The sentiment is highly favourable : Best time to buy! </span>";
+                    }
+
+                    else if(currSentiment< -0.1 && currSentiment >=-0.2)
                     {
-                        document.getElementById('myDiv').innerHTML = '<font color=\"red\">' + currSentiment + '</font>'
-                    } */
+                    	document.getElementById('temp').innerHTML = " <span style = 'color : orange;'> The prospects look bad : Sell before its too late! </span>";
+                    }
+                    else if(currSentiment < -0.2){
+                    	document.getElementById('temp').innerHTML = " <span style = 'color : red ;'> The sentiment is highly unfavourable : Sell to minimize the losses! </span> ";
+                    }
+					
+                   
+                    
                 }
             }
         };
@@ -388,6 +397,13 @@ var gauge = function(container, configuration) {
 
         return false;
     }
+</script>
+
+<script type="text/javascript">
+	$('#CurrencyItem li').click(function(){
+		var ID = $(this).index();
+		alert("Index is " + ID);	
+	});
 </script>
 
 <body>
@@ -435,15 +451,19 @@ var gauge = function(container, configuration) {
             <ul class="nav navbar-nav navbar-right">
 
                 <li class="dropdown">
-                    <a class="dropdown-toggle" name = "cur", id = "cur" value = 1 data-toggle="dropdown" href="#" style="font-size: 17px;width: 160px">Currency
-                        <span class="caret"  ></span></a>
-                            <ul class="dropdown-menu" style="" >
-
-                              <li ><a href="#" value = 1> Bitcoin</a></li>
-                              <li ><a href="#" value = 2>Ripple</a></li>
-                              <li ><a href="#" value = 3>Etherium</a></li>
-
-                            </ul>
+                    <a class="dropdown-toggle" name = "cur", id = "cur" value = 1 data-toggle="dropdown" style="font-size: 17px;width: 160px">Currency
+                        <span class="caret"  ></span>
+                    </a>
+                    
+                    <ul class="dropdown-menu" style="" id="CurrencyItem">
+                    	<!-- <li value="item1">Item 1</li>
+					    <li value="item2">Item 2</li>
+					    <li value="item3">Item 3</li> -->
+						<li value = 1 id="dropBit"><a>Bitcoin</a></li>
+						<li value = 2 id="dropRip"><a>Ripple</a></li>
+						<li value = 3 id="dropEth"><a>Etherium</a></li>
+                    </ul>
+	               
                 </li>
 
 
@@ -463,10 +483,11 @@ var gauge = function(container, configuration) {
 <div id="subhead">
     <h4>Currently analyzing 0 tweets over the last 120 minutes. The average sentiment score is 0.0000.</h4>
 </div>
+<div id="temp">Waiting for adequate data ... </div>
 <div id="power-gauge"></div>
-<div style="margin-left:-8px;margin-right:-8px; margin-top: 15%"><hr style="color:Black;background-color:lightgrey;border:0;width:100%;height:1.25px;" /></div>
 
 
+<div> Sentiment - Meter </div>
 </body>
 </html>
 
