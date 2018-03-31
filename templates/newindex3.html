@@ -383,12 +383,12 @@ var gauge = function(container, configuration) {
                     {
                         document.getElementById('temp').innerHTML = "<span style='color: black ;'> The prospects are neutral.</span> ";
                     }
-                    if(currSentiment > 0.1 && currSentiment <=0.2 && ans2<ans && coin=="bitcoin"){
+                    if(currSentiment > 0.1 && currSentiment <=0.2 && ans2>0 && coin=="bitcoin"){
                         document.getElementById('temp').innerHTML = "<span style='color : blue;'> The prospects look good : You can look buy! </span> <br />"+"<span style='color : blue;'> Price change in last one hour: </span>"+ans+"% <br />"+ "<span style='color : blue;'> Price change in last 24 hours: </span>"+ans2+"%";
                         
                     }
 
-                    else if(currSentiment > 0.2  && ans2<ans&& coin=="bitcoin"){
+                    else if(currSentiment > 0.2  && ans2>0&& coin=="bitcoin"){
                         document.getElementById('temp').innerHTML = "<span style ='color : green ;'> The sentiment is highly favourable : Best time to buy! </span><br />"+"<span style='color : blue;'> Price change in last one hour: </span>"+ans+"% <br />"+ "<span style='color : blue;'> Price change in last 24 hours: </span>"+ans2+"%";
                     }
 
@@ -409,12 +409,12 @@ var gauge = function(container, configuration) {
 
                     // ripple here
 
-                    if(currSentiment > 0.1 && currSentiment <=0.2 && r24hr<r1hr && coin=="ripple"){
+                    if(currSentiment > 0.1 && currSentiment <=0.2 && r24hr>0 && coin=="ripple"){
                         document.getElementById('temp').innerHTML = "<span style='color : blue;'> The prospects look good : You can look buy! </span> <br />"+"<span style='color : blue;'> last one hour price change is: </span>"+r1hr+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+r24hr+"%";
                         
                     }
 
-                    else if(currSentiment > 0.2  && r24hr<r1hr&& coin=="ripple"){
+                    else if(currSentiment > 0.2  && r24hr>0&& coin=="ripple"){
                         document.getElementById('temp').innerHTML = "<span style ='color : green ;'> The sentiment is highly favourable : Best time to buy! </span><br />"+"<span style='color : blue;'> last one hour price change is: </span>"+r1hr+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+r24hr+"%";
                     }
 
@@ -428,19 +428,19 @@ var gauge = function(container, configuration) {
 
                     else if(coin=="ripple")
                     {
-                        document.getElementById('temp').innerHTML = "<span style='color: red ;'> Wait man! wait. The situation is unstable, anything could happen</span> ";
+                        document.getElementById('temp').innerHTML = "<span style='color: black ;'> Wait man! wait. The situation is unstable, anything could happen</span> ";
                     }
 
 
                     // etherium starts here
 
 
-                    if(currSentiment > 0.1 && currSentiment <=0.2 && e24hr<e1hr && coin=="etherium"){
+                    if(currSentiment > 0.1 && currSentiment <=0.2 && e24hr>0 && coin=="etherium"){
                         document.getElementById('temp').innerHTML = "<span style='color : blue;'> The prospects look good : You can look buy! </span> <br />"+"<span style='color : blue;'> last one hour price change is: </span>"+e1hr+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+e24hr+"%";
                         
                     }
 
-                    else if(currSentiment > 0.2  && e24hr<e1hr&& coin=="etherium"){
+                    else if(currSentiment > 0.2  && e24hr>0&& coin=="etherium"){
                         document.getElementById('temp').innerHTML = "<span style ='color : green ;'> The sentiment is highly favourable : Best time to buy! </span><br />"+"<span style='color : blue;'> last one hour price change is: </span>"+e1hr+"% <br />"+ "<span style='color : blue;'> last one day price change is: </span>"+e24hr+"%";
                     }
 
@@ -454,7 +454,7 @@ var gauge = function(container, configuration) {
 
                     else if(coin=="etherium")
                     {
-                        document.getElementById('temp').innerHTML = "<span style='color: red ;'> Wait man! wait. The situation is unstable, anything could happen</span> ";
+                        document.getElementById('temp').innerHTML = "<span style='color: black ;'> Wait man! wait. The situation is unstable, anything could happen</span> ";
                     }
 
                     
@@ -552,6 +552,11 @@ var gauge = function(container, configuration) {
         The web application streams all tweets containing the word associated with respective coin within the last 120 minutes of being launched. The tweets are then put through <span style="color: #A80000">sentiment analysis</span> in order to determine how postitive or negative they are.
         Lastly, the sentiment scores are averaged and reported to you using the <span style="color: #A80000">visualization</span> seen above.
         For best results, keep this tab open for a few minutes and then check it out.</p>
+    <br>
+
+     <p> If you're interested in the code itself, feel free to have a look at my <a href="https://github.com/varadhbhatnagar/Emoyto"><span style="color: #A80000">Github</span></a>.
+        
+
     <br>
 
 <script>
