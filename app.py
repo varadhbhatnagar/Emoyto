@@ -16,10 +16,10 @@ app = Flask(__name__)
 
 #Twitter Credentials
 
-consumer_key = ["YfsfRUtv0Jstlvm0TLg8DrZNA","M7Gxr21fzCQPOeQ8Rcm48Hskv","dWdHXN0Ko3CdQogLJ4Iy24Vl5"]
-consumer_secret = ["Dx95SabGPVACrlQanwkajOnsfss0tWsyej8xO8rUKnf6N70Tyh","Q5U8VniK0p8nMHYjvxll6V1H6CvNc4XUKHxDdqM0JioGNkej3r","e9EPoegS4TuYYYIN5m2JM3rTv7FuhAL7mYkIRGJlZwS4sWm9G3"]
-access_token= ["704330902432669696-pmTtYoAM3ywia3zAY5sWAEVkzhWUwan","2162065807-hm17ST1Tt26bUscsSICz3aXptrwswOyipGc6x61","952228942458511360-5U6duPS5q6duwywioruXCDIX0JJmfL6"]
-access_token_secret=["BSW1LmSmDZmNrDPL3KytWXgZeOTHo99Ee1vDu1FBc5EAJ","93DS5hJ1NQnKeZhRar2pH59QEO3LKD3njP5A9SfobZfYm","xizYGYtT57LbgqqPxmRyy6o9VGwKdY0FckYBDm1LKNqCw"]
+consumer_key = ["YfsfRUtv0Jstlvm0TLg8DA","M7GxfzCQPOeQ8Rcm48Hskv","dXN0Ko3CdQogLJ4Iy24Vl5"]
+consumer_secret = ["Dx95SabGPVACrlQanwkajOnsfsWsyej8xO8rUKnf6N70Tyh","Q5U8K0p8nMHYjvxll6V1H6CvNc4XUKHxDdqM0JioGNkej3r","e9egS4TuYYYIN5m2JM3rTv7FuhAL7mYkIRGJlZwS4sWm9G3"]
+access_token= ["704330902432669696-pmTtYoAM3ywiaY5sWAEVkzhWUwan","216206580m17ST1Tt26bUscsSICz3aXptrwswOyipGc6x61","928942458511360-5U6duPS5q6duwywioruXCDIX0JJmfL6"]
+access_token_secret=["BSW1LmSmDZmNrDPL3KytWXTHo99Ee1vDu1FBc5EAJ","93DS5hJ1NQnhRar2pH59QEO3LKD3njP5A9SfobZfYm","xiYtT57LbgqqPxmRyy6o9VGwKdY0FckYBDm1LKNqCw"]
 
 
 # OAuth process
